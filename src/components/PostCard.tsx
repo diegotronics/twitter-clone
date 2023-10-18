@@ -7,6 +7,7 @@ import {
   Avatar
 } from '@nextui-org/react'
 import Link from 'next/link'
+import { IconHeart, IconMessageCircle, IconRepeat } from '@tabler/icons-react'
 
 export default function PostCard({
   userFullName,
@@ -20,7 +21,7 @@ export default function PostCard({
   content: string
 }) {
   return (
-    <Card className="max-w-[340px]">
+    <Card className="shadow-none bg-transparent hover:bg-slate-800 transition border-b rounded-none border-white/20 cursor-pointer">
       <CardHeader className="justify-between">
         <div className="flex gap-x-2">
           <Link href={`/${userName}`} passHref={true}>
@@ -36,10 +37,20 @@ export default function PostCard({
           </div>
         </div>
       </CardHeader>
-      <CardBody className="px-3 py-0 text-small text-white">
+      <CardBody className="px-3 py-0 text-xs text-white">
         <p>{content}</p>
       </CardBody>
-      <CardFooter className="gap-3"></CardFooter>
+      <CardFooter className="gap-3">
+        <button>
+          <IconMessageCircle className="w-4 h-4" />
+        </button>
+        <button>
+          <IconHeart className="w-4 h-4" />
+        </button>
+        <button>
+          <IconRepeat className="w-4 h-4" />
+        </button>
+      </CardFooter>
     </Card>
   )
 }
